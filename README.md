@@ -33,7 +33,7 @@ backend/ ├── config/ # Database connection ├── controllers/ # Reques
 
 ## Setup & Installation
 
-1. **Download Zip file or import the project on dektop Navigate to the backend directory:**
+1. **Download Zip file or import the project on desktop and Navigate to the backend directory:**
    ```bash
    cd backend
 
