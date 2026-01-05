@@ -1,7 +1,7 @@
 const Submission = require('../models/Submission');
 const Assignment = require('../models/Assignment');
 
-// 1. Submit Assignment (Student)
+// Submit Assignment (Student)
 exports.submitAssignment = async (req, res) => {
   if (req.user.role !== 'student') return res.status(403).json({ message: 'Only students can submit' });
   try {
@@ -17,12 +17,12 @@ exports.submitAssignment = async (req, res) => {
     let submission = await Submission.findOne({ assignmentId, studentId: req.user.id });
 
     if (submission) {
-      // If status is NOT 'REDO_REQUESTED', block them.
+      // If status is NOT 'REDO REQUESTED', block them.
       if (submission.status !== 'REDO_REQUESTED') {
         return res.status(400).json({ message: 'You have already submitted this assignment.' });
       }
       
-      // If status IS 'REDO_REQUESTED', update existing submission and reset status
+      // If status IS 'REDO REQUESTED', update existing submission and reset status
       submission.answer = answer;
       submission.submittedAt = Date.now();
       submission.status = 'SUBMITTED'; // Reset to Submitted
@@ -46,7 +46,7 @@ exports.submitAssignment = async (req, res) => {
   }
 };
 
-// 2. Get Submissions (Teacher)
+// Get Submissions (Teacher)
 exports.getSubmissionsForAssignment = async (req, res) => {
   if (req.user.role !== 'teacher') return res.status(403).json({ message: 'Access Denied' });
   try {
@@ -58,13 +58,13 @@ exports.getSubmissionsForAssignment = async (req, res) => {
   }
 };
 
-// 3. Update Submission Status (Teacher - Allow Redo)
+// Update Submission Status (Teacher - Allow Redo)
 exports.updateSubmissionStatus = async (req, res) => {
   // Ensure only teachers can change status
   if (req.user.role !== 'teacher') return res.status(403).json({ message: 'Access Denied' });
 
   try {
-    const { status } = req.body; // Expect "REDO_REQUESTED"
+    const { status } = req.body; // Expect "REDO REQUESTED"
     
     const submission = await Submission.findByIdAndUpdate(
         req.params.id, 

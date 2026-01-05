@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const app = express();
 
-// 1. CORS Configuration 
+// CORS Configuration 
 app.use(cors({
   origin: "http://localhost:3000", // The URL of your React App
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -13,17 +13,17 @@ app.use(cors({
   credentials: true
 }));
 
-// 2. Middleware
+// Middleware
 app.use(express.json());
 
-// 3. Database Connection
+// Database Connection
 connectDB();
 
-// 4. Mount Routes
+// Mount Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/assignments', require('./routes/assignmentRoutes'));
 app.use('/api/submissions', require('./routes/submissionRoutes'));
 
-// 5. Server Start
+// Server Start
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
