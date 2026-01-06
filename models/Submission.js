@@ -5,11 +5,7 @@ const SubmissionSchema = new mongoose.Schema({
   studentId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   answer: { type: String, required: true },
   submittedAt: { type: Date, default: Date.now },
-  status: { 
-    type: String, 
-    enum: ['SUBMITTED', 'REDO_REQUESTED'], 
-    default: 'SUBMITTED' 
-  }
+  isReviewed: { type: Boolean, default: false } // Requirement: Optional mark as reviewed
 });
 
 // Ensure one submission per student per assignment

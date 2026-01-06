@@ -9,25 +9,6 @@ This is the backend server for the Assignment Workflow Portal. It provides RESTf
 - **Bcryptjs** - Password Hashing
 - **Cors** - Cross-Origin Resource Sharing
 
-## Project Structure
-Ye lijiye dono projects (Frontend aur Backend) ke liye professional README.md files. Aap inhein copy karke apne respective folders mein save kar sakte hain.
-
-1. Backend README (backend/README.md)
-Is file ko backend folder ke andar banayein.
-
-Markdown
-
-# Assignment Portal - Backend API
-
-This is the backend server for the Assignment Workflow Portal. It provides RESTful APIs for user authentication (Teacher/Student), assignment management, and submission workflows using Node.js, Express, and MongoDB.
-
-##  Technologies Used
-- **Node.js** & **Express.js** - Server Framework
-- **MongoDB** & **Mongoose** - Database
-- **JWT (JSON Web Tokens)** - Authentication
-- **Bcryptjs** - Password Hashing
-- **Cors** - Cross-Origin Resource Sharing
-
 ##  Project Structure
 backend/ ├── config/ # Database connection ├── controllers/ # Request logic ├── middleware/ # Auth & Role checks ├── models/ # Mongoose Schemas (User, Assignment, Submission) ├── routes/ # API Routes └── server.js # Entry point
 
